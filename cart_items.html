@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <!-- <link rel="stylesheet" href="cart.css"> -->
+
+
+<!-- CSS CODE FOR CART ITEM PAGE -->
+     <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+header nav a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+}
+header nav a:hover{
+    color:rgb(170, 252, 170);
+    text-decoration: underline;
+}
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.cart-items img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-items .item-details {
+    flex: 1;
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.cart-items .item-details h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-items .item-details p {
+    margin: 0.5rem 0 0;
+    color: #666;
+}
+
+.cart-items .remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.cart-items .remove-btn:hover {
+    background: darkred;
+}
+
+.cart-summary {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.cart-summary h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#checkout-btn {
+    background: green;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+#checkout-btn:hover {
+    background: darkgreen;
+}
+</style>
+
+<!-- HTML CODE FOR CART ITEM PAGE -->
+</head>
+<body>
+    <header>
+        <a href="beauty.html" class="logo">Aura Beauty<span>.</span></a>
+        <nav>
+            <a href="beauty.html">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#product">Products</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Your Cart</h1>
+        <div class="cart-container">
+            <ul class="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </ul>
+            <div class="cart-summary">
+                <h2>Total: $<span id="cart-total">0.00</span></h2>
+                <button id="checkout-btn">Checkout</button>
+            </div>
+        </div>
+    </main>
+
+<!-- script for cart page -->
+    <script>
+        // Retrieve cart items from localStorage
+const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Function to display cart items
+function displayCartItems() {
+    const cartItemsList = document.querySelector('.cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    cartItemsList.innerHTML = '';
+
+    if (cart.length === 0) {
+        cartItemsList.innerHTML = '<li>Your cart is empty.</li>';
+        cartTotal.textContent = '0.00';
+        return;
+    }
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-details">
+                <h3>${item.name}</h3>
+                <p>$${item.price.toFixed(2)}</p>
+            </div>
+            <button class="remove-btn" data-index="${index}">Remove</button>
+        `;
+        cartItemsList.appendChild(listItem);
+
+        total += item.price;
+    });
+
+    cartTotal.textContent = total.toFixed(2);
+
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', (event) => {
+            const index = event.target.getAttribute('data-index');
+            removeFromCart(index);
+        });
+    });
+}
+
+// Function to remove an item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCartItems();
+}
+
+// Display cart items on page load
+displayCartItems();
+</script>
+</body>
+</html>

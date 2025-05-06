@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="stylesheet" href="beauty.css">
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fas fa-bars"></label>
+        <a href="#" class="logo">Aura Beauty<span>.</span></a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#product">Products</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-shopping-cart">
+                <span class="cart-count">0</span>
+            </a>
+            <a href="#" class="fas fa-user"></a>
+        </div>  
+        <button id="loginButton" style="background-color: purple; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Login
+        </button>
+  
+    </header>
+
+    <!-- HOME PAGE -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Discover<br><span>The Secreats<br>Of</span> Beauty</h3>
+            <p>Get them together for less!, Natural Looking<br>Coverage that will looks like skin..</p>
+            <p><b>Care for your Skin.<br>Care for your Beauty,</b></p>
+            <a href="#product" class="btn">shop now</a>
+        </div>
+    </section>
+
+    <!-- ABOUT US PAGE -->
+    <section class="about" id="about">
+        <h1 class="heading">About Us</h1>
+        <div class="row">
+            <div class="image">
+                <img src="images/image5.jpg">
+                <!-- <h3>Best flower sellers</h3> -->
+            </div>
+            <div class="content">
+                <h3>why choose us?</h3>
+                <p>"At Aura Beauty,we believe that beauty comes from within.Our mission is to empower you to feel confident and radiant in your own. We
+                    create high-quality,etically sourced beauty products that are kind to your skin and the planet.<br><br>
+                We are passionate about using natural ingredients and sustainable practices. Our products are free from harsh chemicals,parabency and strive to provide
+                    you with all the information you need to make informed choices about your skincare routine.<br><br>
+                We are team of beauty enthusiasts dedicated to helping you achieve your skincare goals.We are here to support you on your journey to healthy,glowing skin."</p>
+                <a href="#" class="btn">learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT PAGE -->
+    <section class="product" id="product">
+        <h1 class="heading">Latest <span>Products</span></h1>
+        <div class="box-container">
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image7.jpg" alt="Product 1">
+                </div>
+                <div class="content">
+                    <a href="" class="fas fa-heart" data-name="ORMADIC" data-image="images/image7.jpg"style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>ORMADIC</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart" data-name="ORMADIC" data-price="12.99" data-image="images/image7.jpg">Add to Cart</button>
+                </div>
+            </div>
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image21.jpg" alt="Product 2">
+                </div>
+                <div class="content">
+                    <a href="#" class="fas fa-heart" data-name="JADI BEAUT`E" data-image="images/image21.jpg" style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>JADI BEAUT`E</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart"  data-name="JADI BEAUT`E" data-price="12.99" data-image="images/image21.jpg">Add to Cart</button>
+                </div>
+            </div>
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image20.jpg" alt="Product 3">
+                </div>
+                <div class="content">
+                    <a href="#" class="fas fa-heart" data-name="ROSEMARY WATER" data-image="images/image20.jpg" style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>ROSEMARY WATER</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart" data-name="ROSEMARY WATER" data-price="12.99" data-image="images/image20.jpg">Add to Cart</button>
+                </div>
+            </div>
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image9.jpg" alt="Product 4">
+                </div>
+                <div class="content">
+                    <a href="#" class="fas fa-heart"data-name="D'ALOE VERA SHAMPOO" data-image="images/image9.jpg" style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>D'ALOE VERA SHAMPOO</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart" data-name="D'ALOE VERA SHAMPOO" data-price="12.99" data-image="images/image9.jpg">Add to Cart</button>
+                </div>
+            </div>
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image4.jpg"alt="Product 5">
+                </div>
+                <div class="content">
+                    <a href="#" class="fas fa-heart"data-name="COLLAGEN X3" data-image="images/image4.jpg" style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>COLLAGEN X3</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart" data-name="COLLAGEN X3" data-price="12.99" data-image="images/image4.jpg">Add to Cart</button>
+                </div>
+            </div>
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image1.jpg" alt="Product 6">
+                </div>
+                <div class="content">
+                    <a href="#" class="fas fa-heart"data-name="R&G FACE WASH" data-image="images/image1.jpg" style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>R&G FACE WASH</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart" data-name="R&G FACE WASH" data-price="12.99" data-image="images/image1.jpg">Add to Cart</button>
+                </div>
+            </div>
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image17.jpg" alt="Product 7">
+                </div>
+                <div class="content">
+                    <a href="#" class="fas fa-heart" data-name="LOTUS WHITE GLOW CREAM" data-image="images/image17.jpg"style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>LOTUS WHITE GLOW CREAM</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart" data-name="LOTUS WHITE GLOW CREAM" data-price="12.99">Add to Cart</button>
+                </div>
+            </div>
+            <div class="box">
+                <span class="discount">-10% off</span>
+                <div class="image">
+                    <img src="images/image19.jpg" alt="Product 8">
+                </div>
+                <div class="content">
+                    <a href="#" class="fas fa-heart" data-name="LOVE NATURE SHAMPOO" data-image="images/image19.jpg"style="font-size: 1.4rem; color: black; margin-top: -100px;"></a>
+                    <h3>LOVE NATURE SHAMPOO</h3>
+                    <div class="price">$12.99<span>$15.99</span></div> 
+                     <button class="cart" data-name="LOVE NATURE SHAMPOO" data-price="12.99">Add to Cart</button>
+                </div>
+            </div>
+
+    <section class="contact" id="contact">
+        <h1 class="heading" style="font-size: 4rem; color: #333; margin: 2rem 0; padding: 1rem;margin-left: 350px;">Contact Us</h1>
+        <div class="con_inf">
+            <h1>Send Your Message!..</h1>  
+            <input class="input" type="text" name="name" placeholder="Your Name:"><br>
+            <input class="input" type="text" name="email" placeholder="Your Eamil:"><br>
+            <input  class="input" type="number" placeholder="Your Number:"><br>
+            <input class="input" type="text" placeholder="Your Message:"><br>
+
+            <input id="send" type="button" value="Send Message"><br>
+            <h2>Contact Information</h2><br>
+
+            <div id="p1">Mobile No:+1 123 456 789</div>
+            <div id="p2">Eamil: shwe@gmail.com</div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+
+   <script src="beauty.js"></script>
+</body>
+</html>
