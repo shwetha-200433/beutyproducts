@@ -140,34 +140,32 @@ document.querySelectorAll('.fa-heart').forEach(heartIcon => {
 updateFavoritesCount();
 
 
+// ===================FAVORITES PAGE====================
 // Function to display favorite items
-function displayFavorites() {
-    const favoritesModal = document.createElement('div');
-    favoritesModal.classList.add('favorites-modal');
-    favoritesModal.innerHTML = `
-        <div class="favorites-modal-content">
-            <h2>Your Favorites</h2>
-            <ul class="favorites-list">
-                ${favorites.map(item => `
-                    <li>
-                        <img src="${item.image}" alt="${item.name}" style="width: 50px; height: 50px;">
-                        ${item.name}
-                    </li>
-                `).join('')}
-            </ul>
-            <button class="close-favorites">Close</button>
-        </div>
-    `;
-    document.body.appendChild(favoritesModal);
+// Array to store favorite items
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-    // Close the modal
-    favoritesModal.querySelector('.close-favorites').addEventListener('click', () => {
-        favoritesModal.remove();
-    });
+// Function to add an item to favorites
+function addToFavorites(itemName, itemImage, itemPrice) {
+    // Check if the item is already in favorites
+    const isAlreadyFavorite = favorites.some(item => item.name === itemName);
+
+    if (!isAlreadyFavorite) {
+        favorites.push({ name: itemName, image: itemImage, price: itemPrice });
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        alert(`${itemName} has been added to your favorites!`);
+    } else {
+        alert(`${itemName} is already in your favorites!`);
+    }
 }
 
-// Add event listener to the heart icon in the navbar
-document.querySelector('.fa-heart').addEventListener('click', event => {
-    event.preventDefault();
-    displayFavorites();
+// Add event listeners to all heart icons
+document.querySelectorAll('.fa-heart').forEach(heartIcon => {
+    heartIcon.addEventListener('click', event => {
+        event.preventDefault();
+        const itemName = heartIcon.getAttribute('data-name');
+        const itemImage = heartIcon.getAttribute('data-image');
+        const itemPrice = heartIcon.closest('.content').querySelector('.price').textContent.trim();
+        addToFavorites(itemName, itemImage, itemPrice);
+    });
 });

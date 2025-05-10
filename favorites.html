@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--================= CSS CODE FOR CART ITEM PAGE=================== -->
+    <style>
+        .favorites-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.favorite-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.favorite-item img {
+    border-radius: 8px;
+}
+
+.favorite-item h3 {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.favorite-item p {
+    margin: 0.5rem 0 0;
+    color: #666;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <a href="beauty.html" class="logo">Aura Beauty<span>.</span></a>
+        <nav class="navbar">
+            <a href="beauty.html">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#product">Products</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Your Favorites</h1>
+        <div class="favorites-container">
+            <!-- Favorite items will be dynamically added here -->
+        </div>
+    </main>
+
+    <script>
+        // =================script for Favorites  page=====================
+        // Retrieve favorite items from localStorage
+const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+// Function to display favorite items
+function displayFavorites() {
+    const favoritesContainer = document.querySelector('.favorites-container');
+    favoritesContainer.innerHTML = '';
+
+    if (favorites.length === 0) {
+        favoritesContainer.innerHTML = '<p>Your favorites list is empty.</p>';
+        return;
+    }
+
+    favorites.forEach(item => {
+        const favoriteItem = document.createElement('div');
+        favoriteItem.classList.add('favorite-item');
+        favoriteItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width: 100px; height: 100px;">
+            <div>
+                <h3>${item.name}</h3>
+                <p>${item.price}</p>
+            </div>
+        `;
+        favoritesContainer.appendChild(favoriteItem);
+    });
+}
+
+// Display favorites on page load
+displayFavorites();
+    </script>
+</body>
+</html>
