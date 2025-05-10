@@ -121,7 +121,7 @@ function displayFavorites() {
         return;
     }
 
-    favorites.forEach(item => {
+    favorites.forEach((item, index) => {
         const favoriteItem = document.createElement('div');
         favoriteItem.classList.add('favorite-item');
         favoriteItem.innerHTML = `
