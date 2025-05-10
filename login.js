@@ -5,8 +5,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const password = document.getElementById('password').value;
 
     // Example credentials (replace with actual authentication logic)
-    const validUsername = "user";
-    const validPassword = "password";
+    const validUsername = "User";
+    const validPassword = "Password";
 
     if (username === validUsername && password === validPassword) {
         // Store login state in localStorage
