@@ -130,3 +130,9 @@ document.querySelectorAll('.fa-heart').forEach(heartIcon => {
         addToFavorites(itemName, itemImage, itemPrice);
     });
 });
+
+// Redirect to the favorites page when the heart icon in the navbar is clicked
+document.getElementById('favoritesIcon').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default anchor behavior
+    window.location.href = 'favorites.html'; // Redirect to the favorites page
+});
