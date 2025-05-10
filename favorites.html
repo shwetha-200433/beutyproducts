@@ -68,6 +68,12 @@ header nav a:hover{
     margin: 0.5rem 0 0;
     color: #666;
 }
+h1{
+    font-size: 2.5rem;
+    color: #333;
+    margin: 2rem 0;
+    text-align: center;
+}
     </style>
 </head>
 <body>
@@ -111,10 +117,26 @@ function displayFavorites() {
                 <h3>${item.name}</h3>
                 <p>${item.price}</p>
             </div>
+            <button class="remove-btn" data-index="${index}">Remove</button>
         `;
         favoritesContainer.appendChild(favoriteItem);
     });
-}
+
+            // Add event listeners to all remove buttons
+            document.querySelectorAll('.remove-btn').forEach(button => {
+            button.addEventListener('click', event => {
+                const index = event.target.getAttribute('data-index');
+                removeFromFavorites(index);
+            });
+        });
+    }
+
+    // Function to remove an item from favorites
+    function removeFromFavorites(index) {
+        favorites.splice(index, 1); // Remove the item from the array
+        localStorage.setItem('favorites', JSON.stringify(favorites)); // Update localStorage
+        displayFavorites(); // Refresh the favorites list
+    }
 
 // Display favorites on page load
 displayFavorites();
