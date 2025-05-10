@@ -99,45 +99,6 @@ document.querySelector('.fa-shopping-cart').addEventListener('click', () => {
     });
 
 
-// ===================FAVORITES PAGE====================
-// Array to store favorite items
-let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-// Function to add an item to favorites
-function addToFavorites(itemName, itemImage) {
-    // Check if the item is already in favorites
-    const isAlreadyFavorite = favorites.some(item => item.name === itemName);
-
-    if (!isAlreadyFavorite) {
-        favorites.push({ name: itemName, image: itemImage });
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        updateFavoritesCount();
-        alert(`${itemName} has been added to your favorites!`);
-    } else {
-        alert(`${itemName} is already in your favorites!`);
-    }
-}
-
-// Function to update the favorites count in the navbar
-function updateFavoritesCount() {
-    const favoritesCount = document.querySelector('.favorites-count');
-    if (favoritesCount) {
-        favoritesCount.textContent = favorites.length;
-    }
-}
-
-// Add event listeners to all heart icons
-document.querySelectorAll('.fa-heart').forEach(heartIcon => {
-    heartIcon.addEventListener('click', event => {
-        event.preventDefault();
-        const itemName = heartIcon.getAttribute('data-name');
-        const itemImage = heartIcon.getAttribute('data-image');
-        addToFavorites(itemName, itemImage);
-    });
-});
-
-// Update the favorites count on page load
-updateFavoritesCount();
 
 
 // ===================FAVORITES PAGE====================
